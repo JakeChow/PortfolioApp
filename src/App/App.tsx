@@ -1,14 +1,18 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Redirect, Route, Switch, useLocation } from "react-router-dom";
-
+import { Redirect, Route, Switch, BrowserRouter } from "react-router-dom";
+import AboutView from "../AboutView";
+import HomeView from "../HomeView";
 function App() {
   return (
-    <Switch>
-      <Route exact path="/home" render={() => <HomeView />} />
-      <Route exact path="/about" render={() => <AboutView />} />
-      <Redirect from="/" to="/home" />
-    </Switch>
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/home" render={() => <HomeView />} />
+          <Route exact path="/about" render={() => <AboutView />} />
+          <Redirect from="/" to="/home" />
+        </Switch>
+      </BrowserRouter>
+    </div>
   );
 }
 
